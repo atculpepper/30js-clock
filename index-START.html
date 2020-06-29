@@ -15,7 +15,8 @@
 
     <style>
       html {
-        background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+        background: #018ded
+          url(https://images.unsplash.com/photo-1539321908154-04927596764d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80);
         background-size: cover;
         font-family: "helvetica neue";
         text-align: center;
@@ -55,13 +56,26 @@
       .hand {
         width: 50%;
         height: 6px;
-        background: black;
+        background: rgb(170, 187, 218);
         position: absolute;
         top: 50%;
         transform-origin: 100%;
+        transform: rotate(90deg);
+        transition: all 0.05s;
+        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
       }
     </style>
 
-    <script></script>
+    <script>
+      const secondHand = document.querySelector(".second-hand");
+
+      function setDate() {
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const secondsDegrees = (seconds / 60) * 360 + 90;
+        secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+      }
+      setInterval(setDate, 1000);
+    </script>
   </body>
 </html>
