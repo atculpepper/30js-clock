@@ -71,9 +71,15 @@
 
       function setDate() {
         const now = new Date();
+
+        //moving the second hand
         const seconds = now.getSeconds();
         const secondsDegrees = (seconds / 60) * 360 + 90;
         secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+        //moving the minute hand
+
+        //moving the hour hand
       }
       setInterval(setDate, 1000);
     </script>
